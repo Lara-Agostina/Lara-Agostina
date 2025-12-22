@@ -73,3 +73,16 @@ lightbox.addEventListener('click', (e) => {
         setTimeout(() => lightbox.style.display = 'none', 300);
     }
 });
+
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.nav-list');
+
+// Abrir el menú al hacer clic en las rayitas
+menu.addEventListener('click', function() {
+    menuLinks.classList.toggle('active');
+});
+
+// Cerrar el menú automáticamente cuando haces clic en una sección
+document.querySelectorAll('.nav-list a').forEach(n => n.addEventListener('click', () => {
+    menuLinks.classList.remove('active');
+}));

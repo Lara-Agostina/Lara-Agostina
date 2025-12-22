@@ -521,38 +521,60 @@ nav a { color: white; text-decoration: none; font-size: 0.9rem; }
     box-shadow: 0 10px 20px rgba(220, 39, 67, 0.4);
 }
 
-/* --- RESPONSIVE DESIGN (Celulares) --- */
+/* Estilos base para el botón (oculto en desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* --- AJUSTES PARA MÓVILES --- */
 @media (max-width: 768px) {
-    /* Ajuste del Hero para móviles */
-    .hero-container {
-        padding-top: 50px;
-    }
-    
-    .profile-frame {
-        width: 160px; /* Foto más pequeña en móvil */
-        height: 160px;
+    .hero {
+        height: auto; /* Evita el espacio gigante vacío */
+        padding: 100px 20px 60px 20px;
     }
 
-    h1 {
-        font-size: 2.5rem !important; /* Texto más pequeño */
+    .menu-toggle {
+        display: flex; /* Mostrar las rayitas en móvil */
+        z-index: 1001;
     }
 
-    /* Ajuste de Grillas (Certificados, Fotos, Emprendimientos) */
-    .gallery-grid, .certificados-slider, .hobbies-container {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
-        gap: 15px;
+    .nav-list {
+        position: fixed;
+        left: -100%; /* Escondido a la izquierda */
+        top: 0;
+        flex-direction: column;
+        background: rgba(18, 18, 18, 0.98);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 0.3s;
+        justify-content: center;
+        padding: 0;
+        z-index: 1000;
     }
 
-    .vol-grid {
-        flex-direction: column; /* Voluntariados uno sobre otro */
+    /* Clase que activaremos con JS para mostrar el menú */
+    .nav-list.active {
+        left: 0;
     }
 
-    .ideas-container {
-        flex-direction: column; /* Emprendimientos uno sobre otro */
+    .nav-list li {
+        margin: 25px 0;
     }
 
-    nav ul {
-        display: none; /* Podrías crear un menú hamburguesa luego, o dejar solo el logo */
+    .nav-list a {
+        font-size: 1.5rem;
     }
 }
 
@@ -611,4 +633,67 @@ nav a { color: white; text-decoration: none; font-size: 0.9rem; }
     letter-spacing: 1px;
     text-transform: uppercase;
     opacity: 0.4;
+}
+
+.ideas-container {
+    display: flex;
+    flex-direction: column; /* Esto los pone uno debajo del otro */
+    gap: 40px;             /* Espacio entre un proyecto y otro */
+    align-items: center;    /* Los centra horizontalmente */
+    max-width: 900px;
+    margin: 0 auto;         /* Centra el contenedor en la página */
+}
+
+.idea-card {
+    display: flex;
+    flex-direction: row;    /* En pantallas grandes: Imagen a un lado, texto al otro */
+    background: #1e1e2f;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.idea-card:hover {
+    border-color: var(--accent-orange);
+    transform: translateY(-5px);
+}
+
+.idea-img {
+    flex: 1;
+    max-height: 350px;
+}
+
+.idea-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* Tu toque artístico */
+    transition: 0.5s;
+}
+
+.idea-card:hover img {
+    filter: grayscale(0%); /* Cobra color al pasar el mouse */
+}
+
+.idea-info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+/* --- AJUSTE PARA MÓVILES (Celulares) --- */
+@media (max-width: 768px) {
+    .idea-card {
+        flex-direction: column; /* En móvil: Imagen ARRIBA y texto ABAJO */
+    }
+    
+    .idea-info {
+        padding: 25px;
+        text-align: center; /* Centramos el texto en móviles para que luzca mejor */
+    }
 }
