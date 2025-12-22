@@ -686,14 +686,119 @@ nav a { color: white; text-decoration: none; font-size: 0.9rem; }
     text-align: left;
 }
 
-/* --- AJUSTE PARA MÓVILES (Celulares) --- */
+/* --- SECCIÓN EMPRENDIMIENTOS: ESTILO ARTÍSTICO B&N --- */
+
+.ideas-vertical-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* Centra las tarjetas en el medio */
+    gap: 60px;              /* Espacio entre Skala y Yerba */
+    padding: 60px 20px;
+}
+
+.card-mediana {
+    width: 100%;
+    max-width: 550px;       /* Tamaño mediano elegante en PC */
+    background: #1e1e2f;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease;
+}
+
+.card-mediana:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-orange);
+}
+
+/* Efecto Blanco y Negro en la Imagen */
+.card-img {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #000; /* Fondo negro por si la foto tarda en cargar */
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Forzamos el Blanco y Negro aquí */
+    filter: grayscale(100%); 
+    opacity: 0.7; /* Un toque de transparencia para más drama */
+    transition: filter 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Cuando pasas el mouse, vuelve el color */
+.card-mediana:hover .card-img img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 35px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-content h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+.card-content p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+/* Botón estilizado */
+.btn-proyecto {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 2px solid var(--accent-orange);
+    color: var(--accent-orange);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-proyecto:hover {
+    background: var(--accent-orange);
+    color: #1a1a2e;
+}
+
+/* Ajuste para que en móviles no se pegue a los bordes */
 @media (max-width: 768px) {
-    .idea-card {
-        flex-direction: column; /* En móvil: Imagen ARRIBA y texto ABAJO */
+    .card-mediana {
+        width: 95%;
     }
-    
-    .idea-info {
-        padding: 25px;
-        text-align: center; /* Centramos el texto en móviles para que luzca mejor */
-    }
+}
+
+.card-mediana {
+    width: 90%;          /* Casi todo el ancho en celulares */
+    max-width: 550px;    /* <--- TAMAÑO MEDIANO EN PC */
+    margin: 0 auto;      /* Centra la tarjeta */
+    display: flex;
+    flex-direction: column;
+    background: #1e1e2f;
+    border-radius: 25px;
+    overflow: hidden;
+    filter: grayscale(100%); /* Tu estilo B&N */
+    transition: 0.5s ease;
+}
+
+.card-mediana:hover {
+    filter: grayscale(0%);
+    transform: translateY(-10px);
 }
