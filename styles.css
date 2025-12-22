@@ -492,3 +492,66 @@ nav a { color: white; text-decoration: none; font-size: 0.9rem; }
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
 }
+
+/* --- ESTILO INSTAGRAM --- */
+.footer-content {
+    padding: 80px 10%;
+    text-align: center;
+    background: linear-gradient(to top, #1a1a2e, #121212);
+}
+
+.insta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.insta-link { text-decoration: none; }
+
+.insta-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(220, 39, 67, 0.4);
+}
+
+/* --- RESPONSIVE DESIGN (Celulares) --- */
+@media (max-width: 768px) {
+    /* Ajuste del Hero para móviles */
+    .hero-container {
+        padding-top: 50px;
+    }
+    
+    .profile-frame {
+        width: 160px; /* Foto más pequeña en móvil */
+        height: 160px;
+    }
+
+    h1 {
+        font-size: 2.5rem !important; /* Texto más pequeño */
+    }
+
+    /* Ajuste de Grillas (Certificados, Fotos, Emprendimientos) */
+    .gallery-grid, .certificados-slider, .hobbies-container {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        gap: 15px;
+    }
+
+    .vol-grid {
+        flex-direction: column; /* Voluntariados uno sobre otro */
+    }
+
+    .ideas-container {
+        flex-direction: column; /* Emprendimientos uno sobre otro */
+    }
+
+    nav ul {
+        display: none; /* Podrías crear un menú hamburguesa luego, o dejar solo el logo */
+    }
+}
