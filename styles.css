@@ -1695,3 +1695,69 @@ nav {
 .nav-list a:hover::after {
     width: 100%;
 }
+
+/* --- NAVEGACIÓN MEJORADA --- */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+    background: rgba(18, 18, 18, 0.9); /* Un poco más sólido para que no se mezclen las letras */
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Espacio cómodo entre links */
+    margin: 0;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.1rem; /* Tamaño aumentado para legibilidad */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    transition: 0.3s;
+    position: relative;
+}
+
+/* Efecto dinámico al pasar el mouse */
+.nav-list a:hover {
+    opacity: 1;
+    color: #ff8c61; /* Tu naranja accent-orange */
+    transform: translateY(-2px);
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #ff8c61;
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+/* Evitar que el menú tape el contenido al desplazar */
+section {
+    scroll-margin-top: 90px;
+}
