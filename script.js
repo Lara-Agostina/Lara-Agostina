@@ -86,3 +86,56 @@ menu.addEventListener('click', function() {
 document.querySelectorAll('.nav-list a').forEach(n => n.addEventListener('click', () => {
     menuLinks.classList.remove('active');
 }));
+
+// 1. Efecto de fondo en el menú al bajar
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// 2. Desplazamiento suave (Smooth Scroll)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// 3. Menú móvil toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navList = document.querySelector('.nav-list');
+
+mobileMenu.addEventListener('click', () => {
+    navList.classList.toggle('active');
+});
+
+const sections = document.querySelectorAll("section");
+const navLi = document.querySelectorAll(".nav-list a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= sectionTop - 100) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLi.forEach((a) => {
+    a.classList.remove("active");
+    if (a.getAttribute("href").includes(current)) {
+      a.classList.add("active");
+    }
+  });
+});
