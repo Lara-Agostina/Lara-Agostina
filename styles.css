@@ -1,6 +1,6 @@
 :root {
     --bg-dark: #1a1a2e;
-    --accent-orange: #ff8c61;
+    --accent-orange: #FFEE8C;
     --accent-purple: #6a5acd;
     --glass: rgba(255, 255, 255, 0.1);
 }
@@ -946,7 +946,7 @@ nav a { color: white; text-decoration: none; font-size: 0.9rem; }
 .bday-date {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: var(--accent-orange);
+    color: #FFFACD;
     margin: 10px 0;
 }
 
@@ -992,7 +992,7 @@ nav a { color: white; text-decoration: none; font-size: 0.9rem; }
 .stat-label {
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: var(--accent-orange);
+    color: #FFFACD;
     letter-spacing: 2px;
 }
 
@@ -1349,7 +1349,7 @@ section#mi-historia .historia-container .historia-badge {
 
 /* 7 de Abril en naranja y cursiva */
 .bday-date {
-    color: #ff8c61 !important; /* Tu naranja */
+    color:#FFFACD !important; /* Tu naranja */
     font-family: 'Playfair Display', serif !important;
     font-style: italic !important;
     font-size: 2.8rem !important;
@@ -1377,7 +1377,7 @@ section#mi-historia .historia-container .historia-badge {
 
 /* LAS ETIQUETAS "AÑOS" Y "ABRIL" EN NARANJA */
 .birthday-card .stat-label {
-    color: #ff8c61 !important; /* Forzamos el naranja de la captura */
+    color: #FFFACD !important; /* Forzamos el naranja de la captura */
     font-size: 0.8rem !important;
     text-transform: uppercase !important;
     letter-spacing: 2px !important;
@@ -1738,7 +1738,7 @@ nav {
 /* Efecto dinámico al pasar el mouse */
 .nav-list a:hover {
     opacity: 1;
-    color: #ff8c61; /* Tu naranja accent-orange */
+    color: #FFEE8C; /* Tu naranja accent-orange */
     transform: translateY(-2px);
 }
 
@@ -1749,7 +1749,7 @@ nav {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background: #ff8c61;
+    background: #FFEE8C(16, 100%, 69%);
     transition: width 0.3s ease;
 }
 
@@ -1761,3 +1761,57 @@ nav {
 section {
     scroll-margin-top: 90px;
 }
+
+:root {
+    --bg-dark: #1a1a2e;
+    --accent-yellow: #FFFACD; /* Color amarillo crema */
+    --accent-purple: #6a5acd;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+/* ... otros estilos ... */
+
+.curso-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--accent-yellow); /* Cambiado a amarillo crema */
+    transform: translateY(-10px) scale(1.02);
+}
+
+.tag {
+    background: var(--accent-yellow); /* Cambiado a amarillo crema */
+    color: #000;
+}
+
+/* ... otros estilos ... */
+
+.status-tag {
+    background: rgba(0,0,0,0.8);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: var(--accent-yellow); /* Cambiado a amarillo crema */
+}
+
+/* ... otros estilos ... */
+
+.footer-content {
+    padding: 80px 10%;
+    text-align: center;
+    background: linear-gradient(to top, #1a1a2e, #121212);
+}
+
+.insta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(45deg, #FFEE8C, #FFFACD); /* Cambiado a amarillo crema */
+    color: black; /* Cambiado a un color adecuado */
+}
+
+/* ... otros estilos ... */
+
+.nav-list a:hover {
+    color: var(--accent-yellow); /* Cambiado a amarillo crema */
+}
+
+/* ... otros estilos ... */
