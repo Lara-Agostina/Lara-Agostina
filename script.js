@@ -139,3 +139,14 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+
+window.addEventListener('scroll', function() {
+    const section = document.querySelector('.family-section');
+    const position = section.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if(position < screenHeight) {
+        section.style.opacity = '1';
+        section.style.transition = 'opacity 1s ease-in-out';
+    }
+});

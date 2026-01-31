@@ -1873,3 +1873,45 @@ section {
   z-index: 10;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
+
+.family-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1a1a2e;
+}
+
+.family-card {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.family-img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efecto al pasar el mouse */
+.family-card:hover .family-img {
+    transform: scale(1.1);
+}
+
+.family-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    color: white;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.family-card:hover .family-overlay {
+    opacity: 1;
+}
