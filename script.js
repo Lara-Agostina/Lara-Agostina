@@ -150,3 +150,55 @@ window.addEventListener('scroll', function() {
         section.style.transition = 'opacity 1s ease-in-out';
     }
 });
+
+.quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quote-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+}
+
+#quote-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+#quote-author {
+    display: block;
+    color: #7f8c8d;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+#new-quote-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+#new-quote-btn:hover {
+    background-color: #2980b9;
+}
