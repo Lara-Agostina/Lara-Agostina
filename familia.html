@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia - Lara Agostina</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+    <ul class="nav-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="voluntaria.html">Voluntaria</a></li>
+        <li><a href="certificaciones.html">Certificaciones</a></li>
+        <li><a href="viajes.html">Viajes</a></li>
+        <li><a href="raices.html">Homenaje</a></li>
+        <li><a href="familia.html" class="active" >Familia</a></li>
+    </ul>
+    </div>
+</nav>
+
+<main>
+
+<section id="familia" class="family-section">
+    <p class="subtitle">Familia Contrera</p>
+    <div class="family-card">
+        <img src="Familia Contrera.jpg" alt="Familia" class="family-img">
+        <div class="family-overlay">
+            <p>Donde la vida comienza y el amor nunca termina.</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+<script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active'); // Por si cambia la forma de las rayitas
+        });
+    </script>
+
+    <script>
+        // Seleccionamos todos los enlaces del menú
+        const linksMenu = document.querySelectorAll('.nav-list a');
+
+        linksMenu.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // 1. Evitamos que el navegador salte de página inmediatamente
+                e.preventDefault(); 
+                const href = this.getAttribute('href');
+                
+                // 2. Creamos la onda (ripple)
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+
+                // 3. Calculamos la posición del clic para que la onda nazca ahí
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                
+                // Centramos la onda en el punto exacto del clic/toque
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                // 4. Cambiamos el color del texto a amarillo durante la expansión
+                this.style.color = '#ffeb3b'; // O tu color amarillo exacto
+
+                // 5. Pequeña pausa: Esperamos 400ms (lo que tarda en expandirse la onda) 
+                //    y luego saltamos a la página nueva.
+                setTimeout(() => {
+                    // Eliminamos el ripple para no sobrecargar el DOM (opcional pero limpio)
+                    ripple.remove();
+                    // Volvemos a poner el color de texto normal antes del cambio de página
+                    this.style.color = ''; 
+                    // Ejecutamos el salto de página
+                    window.location.href = href;
+                }, 400); // 400ms es el tiempo perfecto de espera
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -2260,3 +2260,33 @@ img {
     }
 }
 
+/* --- ANIMACIÓN EXPANSIVA AL CLIC (RIPPLE EFFECT) --- */
+
+/* 1. Preparamos el enlace para contener la onda */
+.nav-list li a {
+    position: relative;
+    overflow: hidden; /* Importante: para que la onda no se salga del borde del enlace */
+    /* Tus estilos actuales de color, font-family, etc. */
+    display: inline-block; /* O block, dependiendo de tu diseño actual */
+    transition: color 0.2s ease; /* Transición suave del color de texto */
+    z-index: 1; /* Para que el texto se mantenga por encima de la onda */
+}
+
+/* 2. Creamos el elemento de la onda (inicialmente invisible) */
+.nav-list li a .ripple {
+    position: absolute;
+    border-radius: 50%; /* Es un círculo */
+    background-color: rgba(255, 235, 59, 0.7); /* Amarillo brillante con transparencia */
+    transform: scale(0); /* Empieza en tamaño cero */
+    animation: ripple-animation 0.6s linear; /* La animación dura 0.6 segundos */
+    pointer-events: none; /* No interfiere con el clic del mouse */
+    z-index: -1; /* Se expande POR DETRÁS del texto */
+}
+
+/* 3. Definimos la animación de expansión y desvanecimiento */
+@keyframes ripple-animation {
+    to {
+        transform: scale(4); /* Se expande mucho */
+        opacity: 0; /* Y se vuelve invisible al final */
+    }
+}
